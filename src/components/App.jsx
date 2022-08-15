@@ -36,14 +36,12 @@ export class App extends Component {
 
   render() {
     return (
-      <>
-        <Feedback
-          state={this.state}
-          leaveVote={this.leaveVote}
-          countTotalFeedback={this.countTotalFeedback()}
-          countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
-        />
-      </>
+      <Feedback
+        state={this.state}
+        leaveVote={this.leaveVote}
+        countTotalFeedback={this.countTotalFeedback()}
+        countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
+      />
     );
   }
 }

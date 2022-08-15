@@ -1,7 +1,7 @@
-import s from './feedback.module.scss';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 import Section from './Section';
+import Notification from './Notification';
 
 export default function Feedback({
   state,
@@ -12,18 +12,22 @@ export default function Feedback({
   const { good, neutral, bad } = state;
 
   return (
-    <div className={s.feedBack}>
+    <Section title={'Please leave feedback'}>
       <FeedbackOptions
         options={['good', 'neutral', 'bad']}
         onLeaveFeedback={leaveVote}
       />
-      <Statistics
-        good={good}
-        neutral={neutral}
-        bad={bad}
-        total={countTotalFeedback}
-        positivePercentage={countPositiveFeedbackPercentage}
-      ></Statistics>
-    </div>
+      {countTotalFeedback ? (
+        <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={countTotalFeedback}
+          positivePercentage={countPositiveFeedbackPercentage}
+        />
+      ) : (
+        <Notification message="There is no feedback" />
+      )}
+    </Section>
   );
 }

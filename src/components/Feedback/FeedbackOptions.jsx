@@ -1,12 +1,11 @@
 // import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 import st from './feedback.module.scss';
 import { nanoid } from 'nanoid';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <>
-      <h1>Please leave feedback</h1>
-
       <div className={st.list}>
         {options.map(el => (
           <button
@@ -23,7 +22,9 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   );
 };
 
-//       <button onClick={() => this.leaveVote('good')}>Good</button>
-//       <button onClick={() => this.leaveVote('neutral')}>Neutral</button>
-//       <button onClick={() => this.leaveVote('bad')}>Bad</button>
+FeedbackOptions.propTypes = {
+  options: PropTypes.array.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
+
 export default FeedbackOptions;
