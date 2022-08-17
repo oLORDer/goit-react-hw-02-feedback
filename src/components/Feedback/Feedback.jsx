@@ -14,7 +14,7 @@ export default function Feedback({
   return (
     <Section title={'Please leave feedback'}>
       <FeedbackOptions
-        options={['good', 'neutral', 'bad']}
+        options={Object.keys(state)}
         onLeaveFeedback={leaveVote}
       />
       {countTotalFeedback ? (
